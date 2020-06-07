@@ -1,6 +1,6 @@
 let fairy;
 
-class Fairy {
+class Fairy {  // Implemented by Minwoo Choo
   constructor() {
     this.scale = 1;
     this.fly = false;
@@ -241,6 +241,9 @@ class Fairy {
 
   drawWings() {
     push();
+    //specularMaterial(this.colors.wing);
+    normalMaterial();
+    shininess(60);
 
     /* LEFT WING */
     push();
@@ -248,15 +251,23 @@ class Fairy {
     if (this.fly) {
       //rotateX(sin(rot) * 0.5);
     }
-    translate(0, -0, 0);
-    // left wing high here
+    translate(0, -0, -0);
+    translate(-17, -3, -8);
+    //rotateX(HALF_PI / 10);
+    rotateY(-HALF_PI / 4);
+    rotateZ(-HALF_PI / 3);
+    ellipse(0, 0, 40, 12);
 
     translate(0, 0, 0);
     if (this.fly) {
       //rotateX(-sin(rot) * 0.4 + 0.2);
     }
     translate(0, -0, 0);
-    // left wing low here
+    translate(10, -17, 0);
+    //rotateX(HALF_PI / 10);
+    //rotateY(-HALF_PI / 4);
+    rotateZ(HALF_PI / 2);
+    ellipse(0, 0, 40, 14);
     pop();
 
     /* RIGHT WING */
@@ -266,14 +277,22 @@ class Fairy {
       //rotateX(-sin(rot) * 0.5);
     }
     translate(0, -0, 0);
-    // right wing high here
+    translate(17, -3, -8);
+    //rotateX(HALF_PI / 10);
+    rotateY(HALF_PI / 4);
+    rotateZ(HALF_PI / 3);
+    ellipse(0, 0, 40, 12);
 
     translate(0, 0, 0);
     if (this.fly) {
       //rotateX(sin(rot) * 0.4 + 0.2);
     }
     translate(0, -0, 0);
-    // right wing low here
+    translate(-10, -17, 0);
+    //rotateX(HALF_PI / 10);
+    //rotateY(-HALF_PI / 4);
+    rotateZ(-HALF_PI / 2);
+    ellipse(0, 0, 40, 14);
     pop();
 
     pop();
