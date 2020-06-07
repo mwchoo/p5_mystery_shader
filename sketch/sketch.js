@@ -68,6 +68,7 @@ function setup() {
   srot = 0;
 
   human = new Human();
+  fairy = new Fairy();
   //sounds.bgm.play();
 }
 
@@ -100,7 +101,8 @@ function draw() {
   // camera setting
   camera(X, Y, Z, centerX, centerY, centerZ, 0, 1, 0);
 
-  human.render();
+  //human.render();
+  fairy.render();
 
   /*if (!sounds.bgm.isPlaying()) {
     getAudioContext().resume();
