@@ -88,13 +88,13 @@ class Fairy {
 
   drawArms() {
     push();
+    specularMaterial(this.colors.skin);
+    shininess(60);
 
     // left arm
     push();
     translate(-5.5, -11, 0);
     rotateZ(-HALF_PI / 4);
-    specularMaterial(this.colors.skin);
-    shininess(60);
     cylinder(2, 10);
     pop();
 
@@ -102,9 +102,12 @@ class Fairy {
     translate(-7.8, -18.5, 1.2);
     rotateZ(-HALF_PI / 10);
     rotateX(-HALF_PI / 5);
-    specularMaterial(this.colors.skin);
-    shininess(60);
     cylinder(2, 8);
+    pop();
+
+    push();
+    translate(-8.5, -23, 3);
+    sphere(2);
     pop();
 
     // right arm
@@ -123,6 +126,11 @@ class Fairy {
     specularMaterial(this.colors.skin);
     shininess(60);
     cylinder(2, 8);
+    pop();
+
+    push();
+    translate(8.5, -23, 3);
+    sphere(2);
     pop();
 
     pop();
