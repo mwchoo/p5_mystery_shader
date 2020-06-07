@@ -3,7 +3,7 @@ let fairy;
 class Fairy {  // Implemented by Minwoo Choo
   constructor() {
     this.scale = 1;
-    this.fly = false;
+    this.fly = true;
     this.direction = 'backward';
     this.pos = {
       x: 0,
@@ -249,7 +249,8 @@ class Fairy {  // Implemented by Minwoo Choo
     push();
     translate(0, 0, 0);
     if (this.fly) {
-      //rotateX(sin(rot) * 0.5);
+      //rotateY(mouseY/100);
+      rotateY(sin(rot) * 0.4 - 0.2);
     }
     translate(0, -0, -0);
     translate(-17, -3, -8);
@@ -258,11 +259,6 @@ class Fairy {  // Implemented by Minwoo Choo
     rotateZ(-HALF_PI / 3);
     ellipse(0, 0, 40, 12);
 
-    translate(0, 0, 0);
-    if (this.fly) {
-      //rotateX(-sin(rot) * 0.4 + 0.2);
-    }
-    translate(0, -0, 0);
     translate(10, -17, 0);
     //rotateX(HALF_PI / 10);
     //rotateY(-HALF_PI / 4);
@@ -274,7 +270,7 @@ class Fairy {  // Implemented by Minwoo Choo
     push();
     translate(0, 0, 0);
     if (this.fly) {
-      //rotateX(-sin(rot) * 0.5);
+      rotateY(-sin(rot) * 0.4 - 0.2);
     }
     translate(0, -0, 0);
     translate(17, -3, -8);
@@ -283,11 +279,6 @@ class Fairy {  // Implemented by Minwoo Choo
     rotateZ(HALF_PI / 3);
     ellipse(0, 0, 40, 12);
 
-    translate(0, 0, 0);
-    if (this.fly) {
-      //rotateX(sin(rot) * 0.4 + 0.2);
-    }
-    translate(0, -0, 0);
     translate(-10, -17, 0);
     //rotateX(HALF_PI / 10);
     //rotateY(-HALF_PI / 4);
