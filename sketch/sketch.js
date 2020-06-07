@@ -23,6 +23,9 @@ let humanModel = {
   leg_r_l: undefined
 };
 let bgColor;
+let shaders = {
+  fairy: undefined
+}
 let human;
 //let scene_timer;
 let rot = 0;
@@ -51,6 +54,7 @@ function preload() {
   humanModel.leg_l_l = loadModel('assets/leg_l_l.obj');
   humanModel.leg_r_h = loadModel('assets/leg_r_h.obj');
   humanModel.leg_r_l = loadModel('assets/leg_r_l.obj');
+  shaders.fairy = loadShader('shader.vert', 'shader.frag');
 }
 
 function setup() {
