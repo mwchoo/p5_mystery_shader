@@ -270,7 +270,7 @@ class Fairy {  // Implemented by Minwoo Choo
     push();
     translate(0, 0, 0);
     if (this.fly) {
-      rotateY(-sin(rot) * 0.4 - 0.2);
+      rotateY(-sin(rot) * 0.4 + 0.2);
     }
     translate(0, -0, 0);
     translate(17, -3, -8);
