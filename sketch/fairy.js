@@ -81,6 +81,53 @@ class Fairy {
     specularMaterial(this.colors.body);
     shininess(80);
     box(10, 16, 4.5);
+
+    push();
+    translate(0, -12, 4);
+    rotateX(-HALF_PI / 4);
+    rotateY(HALF_PI / 4);
+    ellipse(0, 0, 7, 15);
+    pop();
+
+    push();
+    translate(5, -12, 2.9);
+    rotateX(-HALF_PI / 4);
+    rotateY(HALF_PI / 4);
+    rotateZ(HALF_PI / 5);
+    ellipse(0, 0, 7, 15);
+    pop();
+
+    push();
+    translate(-5, -12, 4);
+    rotateX(-HALF_PI / 4);
+    rotateY(-HALF_PI / 4);
+    rotateZ(-HALF_PI / 5);
+    ellipse(0, 0, 7, 15);
+    pop();
+
+    push();
+    translate(0, -12, -3.5);
+    rotateX(HALF_PI / 8);
+    //rotateY(HALF_PI / 4);
+    ellipse(0, 0, 7, 15);
+    pop();
+
+    push();
+    translate(5, -12, -3);
+    rotateX(HALF_PI / 10);
+    rotateY(-HALF_PI / 4);
+    rotateZ(HALF_PI / 5);
+    ellipse(0, 0, 7, 15);
+    pop();
+
+    push();
+    translate(-5, -12, -2.5);
+    rotateX(HALF_PI / 10);
+    rotateY(HALF_PI / 4);
+    rotateZ(-HALF_PI / 5);
+    ellipse(0, 0, 7, 15);
+    pop();
+
     pop();
 
     pop();
