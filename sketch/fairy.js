@@ -137,7 +137,59 @@ class Fairy {
   }
 
   drawLegs() {
-    //
+    push();
+    specularMaterial(this.colors.skin);
+    shininess(60);
+
+    // left leg
+    push();
+    translate(-3, -30, 3);
+    rotateZ(-HALF_PI / 20);
+    rotateX(-HALF_PI / 4);
+    cylinder(2.5, 17);
+    pop();
+
+    push();
+    translate(-3.5, -37, 5.8);
+    sphere(2.6);
+    pop();
+
+    push();
+    translate(-2.5, -44.5, 5.5);
+    rotateZ(HALF_PI / 10);
+    rotateX(HALF_PI / 20);
+    cylinder(2.5, 15);
+    pop();
+
+    push();
+    translate(-1.3, -53, 5);
+    sphere(2.6);
+    pop();
+
+    // right leg
+    push();
+    translate(3.5, -30, 1.5);
+    rotateZ(HALF_PI / 10);
+    rotateX(-HALF_PI / 6);
+    cylinder(2.5, 17);
+    pop();
+
+    push();
+    translate(4.5, -37, 3.3);
+    sphere(2.6);
+    pop();
+
+    push();
+    translate(3.5, -44.5, 2.5);
+    rotateZ(-HALF_PI / 10);
+    rotateX(HALF_PI / 10);
+    cylinder(2.5, 15);
+    pop();
+
+    push();
+    translate(2.3, -52, 1.3);
+    sphere(2.6);
+    pop();
   }
 
   drawWings() {
