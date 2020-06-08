@@ -12,9 +12,7 @@ Minimum Full HD(1920 x 1080) resolution or Higher (Based on DPI Scailing 100%)
 
 ## Team
 ```
-추민우
-진예원
-윤정원
+추민우, 진예원, 윤정원
 ```
 
 ## Manual
