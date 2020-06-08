@@ -118,7 +118,7 @@ function draw() {
   ///yewon
   stroke(255, 255, 0);
   //attractor = createVector(a, b);
-  attractor = createVector(mouseX - width/2, mouseY - height /2);
+  attractor = createVector(mouseX - width / 2, mouseY - height / 2);
   console.log(mouseX, mouseY);
   strokeWeight(10);
   console.log(attractor);
