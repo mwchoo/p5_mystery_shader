@@ -11,6 +11,7 @@ function Particle(x, y, z) {
     this.pos.add(this.vel);
     this.acc.mult(0);
   }
+
   this.show = function () {
     stroke(255, 10);
     strokeWeight(4);
@@ -18,10 +19,10 @@ function Particle(x, y, z) {
     this.x = this.pos.x;
     this.y = this.pos.y;
     this.z = this.pos.z;
-
   }
+
   this.attracted = function (target) {
-    //var dir = target -this.pos
+    //let dir = target -this.pos
     let force = p5.Vector.sub(target, this.pos);
     //=distance
     let dsquared = force.magSq();
@@ -36,7 +37,6 @@ function Particle(x, y, z) {
   }
 }
 
-///
 function flying(x, y) {
   this.pos = p5.Vector.random3D();
   // this.prev=createVector(x,y,z);
