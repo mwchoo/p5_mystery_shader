@@ -38,9 +38,9 @@ let human;
 //let scene_timer;
 let rot = 0;
 
-let X = 0; //160;  // 0;
-let Y = 0; //-200;  // 0;
-let Z = 1700; //500;  //1700;
+let X = 160;  // 0;
+let Y = -200;  // 0;
+let Z = 500;  //1700;
 let centerX = 0;
 let centerY = -100;
 let centerZ = -2000;
@@ -92,53 +92,19 @@ function setup() {
   }
   //
 
+  setupCity();
+
   //sounds.bgm.play();
 }
 
 function draw() {
   background(bgColor);
 
-  // scene control
-  if (scene === 0) {
-    // walks to the door
-  } else if (scene === 1) {
-    // ending
-    drawEnding();
-    return;
-  } else if (scene === 2) {
-    return;
-  }
-
   // light setting
   //lights();
   ambientLight(70);
   pointLight(100, 100, 100, sin(srot) * 4000, -1300, cos(srot) * 100 - 100);
   directionalLight(250, 250, 250, 0, 0, 2000);
-
-  ///yewon
-  stroke(255, 255, 0);
-  //attractor = createVector(a, b);
-  attractor = createVector(mouseX - width / 2, mouseY - height / 2);
-  console.log(mouseX, mouseY);
-  strokeWeight(10);
-  console.log(attractor);
-  //point(attractor.x, attractor.y);
-  for (let i = 0; i < particles.length; i++) {
-    let particle = particles[i];
-    particle.attracted(attractor);
-    particle.show();
-    particle.update();
-  }
-  ///
-  for (let i = 0; i < fairies.length; i++) {
-    let curFairy = fairies[i];
-    curFairy.attracted(attractor);
-    //human.render();
-    curFairy.render();
-
-    curFairy.update();
-  }
-  ///
 
   srot += 0.01;
   spotPos.x = 200 * cos(srot);
@@ -148,7 +114,18 @@ function draw() {
 
   // camera setting
   //camera(X, Y, Z, centerX, centerY, centerZ, 0, 1, 0);
-  camera(0, 0, (height / 2.0) / tan(PI * 30.0 / 180.0), 0, 0, 0, 0, 1, 0);
+
+  // scene control
+  if (scene === 0) {
+    // walks to the lobby
+    camera(X, Y, Z, centerX, centerY, centerZ, 0, 1, 0);
+    drawWorld();
+    human.render();
+  } else if (scene === 1) {
+    // particles and fairy
+    camera(0, 0, (height / 2.0) / tan(PI * 30.0 / 180.0), 0, 0, 0, 0, 1, 0);
+    drawParticles();
+  }
 
   //human.render();
   //fairy.render();
