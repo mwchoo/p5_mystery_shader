@@ -14,8 +14,6 @@ P Key: screen shot
 let attractor;
 let particles = [];
 let fairies = [];
-let a = 0;
-let b = 0;
 //
 
 let scene = 0;
@@ -80,7 +78,7 @@ function setup() {
   srot = 0;
 
   human = new Human();
-  fairy = new Fairy();
+  // fairy = new Fairy();
 
   // yewon
   for (let i = 0; i < 1000; i++) {
@@ -163,30 +161,21 @@ function handleKeyDown() {
     // turn your head to the left
     human.walk = true;
     human.direction = 'left'
+    human.pos.x += 2;
 
-    X -= 5;
+    X -= 2;
+    Y = cos(X / 10) * 10 - 200;  // walk effect
+    centerX -= 2;
   } else if (keyIsDown(RIGHT_ARROW)) {
     // turn your head to the right
     human.walk = true;
     human.direction = 'right';
+    human.pos.x -= 2;
 
-    X += 5;
+    X += 2;
+    Y = cos(X / 10) * 10 - 200;  // walk effect
+    centerX += 2;
   }
-
-  // yewon
-  if (keyIsPressed && key === 'a') {
-    a -= 4;
-  }
-  if (keyIsPressed && key === 'd') {
-    a += 4;
-  }
-  if (keyIsPressed && key === 'w') {
-    b -= 4;
-  }
-  if (keyIsPressed && key === 's') {
-    b += 4;
-  }
-  //
 }
 
 function keyPressed() {
