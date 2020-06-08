@@ -17,6 +17,11 @@ class Fairy {  // Implemented by Minwoo Choo
       body: color(80, 188, 223),
       wing: color(0, 0, 250)
     }
+
+    // yewon
+    this.pos=p5.Vector.random3D();
+    this.vel = createVector(2,2);
+    this.acc = createVector();
   }
 
   drawHead() {
@@ -292,7 +297,7 @@ class Fairy {  // Implemented by Minwoo Choo
   render() {
     push();
     noStroke();
-    rotateY(mouseX / 100);
+    //rotateY(mouseX / 100);
     rotateZ(PI);
     scale(1);
     translate(this.pos.x, this.pos.y, this.pos.z);
@@ -319,4 +324,29 @@ class Fairy {  // Implemented by Minwoo Choo
 
     pop();
   }
+
+  // yewon
+  update() {
+    this.vel.add(this.acc);
+    this.vel.limit(5);
+    this.pos.add(this.vel);
+    this.acc.mult(0);
+  }
+
+  attracted(target) {
+    //var dir = target -this.pos
+    let force = p5.Vector.sub(target, this.pos);
+    //=distance
+    let dsquared = force.magSq();
+    dsquared = constrain(dsquared, 5, 100);
+    const G = 20;
+    let strength = G / dsquared;//force
+    force.setMag(strength);
+
+    this.acc = force;
+
+    //크기조정. 즉 방향(거리)의 크기를 force로 조절 한다는뜻/ 거리가 길수록 힘은 작아짐..
+  }
+
+  //
 }

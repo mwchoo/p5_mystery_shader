@@ -10,6 +10,14 @@ ARROW_RIGHT Key: turn your head to the right
 P Key: screen shot
 */
 
+// yewon
+let attractor;
+let particles = [];
+let fairies = [];
+let a = 0;
+let b = 0;
+//
+
 let scene = 0;
 let sounds = {
   bgm: undefined,
@@ -30,9 +38,9 @@ let human;
 //let scene_timer;
 let rot = 0;
 
-let X = 160;  // 0;
-let Y = -200;  // 0;
-let Z = 500;  //1700;
+let X = 0; //160;  // 0;
+let Y = 0; //-200;  // 0;
+let Z = 1700; //500;  //1700;
 let centerX = 0;
 let centerY = -100;
 let centerZ = -2000;
@@ -73,6 +81,17 @@ function setup() {
 
   human = new Human();
   fairy = new Fairy();
+
+  // yewon
+  for (let i = 0; i < 1000; i++) {
+    particles.push(new Particle(200, 100));
+  }
+
+  for (let i = 0; i < 3; i++) {
+    fairies.push(new Fairy());
+  }
+  //
+
   //sounds.bgm.play();
 }
 
@@ -96,6 +115,31 @@ function draw() {
   pointLight(100, 100, 100, sin(srot) * 4000, -1300, cos(srot) * 100 - 100);
   directionalLight(250, 250, 250, 0, 0, 2000);
 
+  ///yewon
+  stroke(255, 255, 0);
+  //attractor = createVector(a, b);
+  attractor = createVector(mouseX - width/2, mouseY - height /2);
+  console.log(mouseX, mouseY);
+  strokeWeight(10);
+  console.log(attractor);
+  //point(attractor.x, attractor.y);
+  for (let i = 0; i < particles.length; i++) {
+    let particle = particles[i];
+    particle.attracted(attractor);
+    particle.show();
+    particle.update();
+  }
+  ///
+  for (let i = 0; i < fairies.length; i++) {
+    let curFairy = fairies[i];
+    curFairy.attracted(attractor);
+    //human.render();
+    curFairy.render();
+
+    curFairy.update();
+  }
+  ///
+
   srot += 0.01;
   spotPos.x = 200 * cos(srot);
   spotPos.y = 200 * sin(srot);
@@ -103,10 +147,11 @@ function draw() {
   spotLight(0, 100, 100, spotPos, spotDir, radians(90), 1);
 
   // camera setting
-  camera(X, Y, Z, centerX, centerY, centerZ, 0, 1, 0);
+  //camera(X, Y, Z, centerX, centerY, centerZ, 0, 1, 0);
+  camera(0, 0, (height / 2.0) / tan(PI * 30.0 / 180.0), 0, 0, 0, 0, 1, 0);
 
   //human.render();
-  fairy.render();
+  //fairy.render();
 
   /*if (!sounds.bgm.isPlaying()) {
     getAudioContext().resume();
@@ -150,6 +195,21 @@ function handleKeyDown() {
 
     X += 5;
   }
+
+  // yewon
+  if (keyIsPressed && key === 'a') {
+    a -= 4;
+  }
+  if (keyIsPressed && key === 'd') {
+    a += 4;
+  }
+  if (keyIsPressed && key === 'w') {
+    b -= 4;
+  }
+  if (keyIsPressed && key === 's') {
+    b += 4;
+  }
+  //
 }
 
 function keyPressed() {
