@@ -133,6 +133,7 @@ function draw() {
     sounds.bgm.play();
   }*/
 
+  checkHumanPos();
   handleKeyDown();
 }
 

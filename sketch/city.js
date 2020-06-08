@@ -36,7 +36,7 @@ function setupCity() {
 
 function drawWorld() {
   push();
-  translate(0, 80, 0);
+  translate(0, 80, -500);
   rotateX(HALF_PI);
 // camera set-up
 

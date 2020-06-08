@@ -85,3 +85,12 @@ class Human {  // Implemented by Minwoo Choo
     pop();
   }
 }
+
+function checkHumanPos() {
+  const {x, y, z} = human.pos;
+  if (x < 190 && x > -198 &&
+    y < -0.06 && y > -0.94 &&
+    z < -382 && z > -614) {
+    scene = 1;
+  }
+}
