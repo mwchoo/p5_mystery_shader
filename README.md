@@ -1,4 +1,4 @@
-# :watch: At the end of the life
+# :crystal_ball: Fairy
 AAT4001: Project 10 - Interactive 3D graphics for wall projection using p5.js [Sogang Univ]
 
 ```
@@ -14,8 +14,8 @@ Minimum Full HD(1920 x 1080) resolution or Higher (Based on DPI Scailing 100%)
 ```
 ARROW_UP Key: go forward
 ARROW_DOWN Key: go backward
-ARROW_LEFT Key: turn your head to the left
-ARROW_RIGHT Key: turn your head to the right
+ARROW_LEFT Key: go left
+ARROW_RIGHT Key: go right
 
 P Key: screen shot
 ```
