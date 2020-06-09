@@ -95,8 +95,7 @@ function setup() {
   //
 
   setupCity();
-
-  //sounds.bgm.play();
+  sounds.bgm.play();
 }
 
 function draw() {
@@ -126,7 +125,6 @@ function draw() {
     camera(X, Y, Z, centerX, centerY, centerZ, 0, 1, 0);
     human.render();
     drawWorld();
-    pop();
   } else if (scene === 1) {
     // particles and fairy
     camera(0, 0, (height / 2.0) / tan(PI * 30.0 / 180.0), 0, 0, 0, 0, 1, 0);
@@ -142,13 +140,10 @@ function draw() {
     pop();
   }
 
-  //human.render();
-  //fairy.render();
-
-  /*if (!sounds.bgm.isPlaying()) {
+  if (!sounds.bgm.isPlaying()) {
     getAudioContext().resume();
     sounds.bgm.play();
-  }*/
+  }
 
   checkHumanPos();
   handleKeyDown();

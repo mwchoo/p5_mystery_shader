@@ -132,12 +132,10 @@ function build() {
   box(5, 2000, 300);
   pop();
 
-
   push();
   translate(0, -1000, 150);
   box(2000, 5, 300);
   pop();
-
 
   push();
   translate(0, 1000, 150);
@@ -146,8 +144,6 @@ function build() {
 
 
   //////////////out wall////
-
-
   ////// in wall///////
   push();
   translate(0, 150, 100);
@@ -166,9 +162,7 @@ function build() {
   pop();
 
   ////// in wall///////
-
   ///////////gi doong////////
-
   push();
   translate(-60, 200, 150);
   box(8, 8, 300);
@@ -205,7 +199,6 @@ function build() {
   pop();
 
   ///////////gi doong////////
-
   push();
   translate(-300, 200, 150);
   box(12, 12, 300);
@@ -215,7 +208,6 @@ function build() {
   translate(300, 200, 150);
   box(12, 12, 300);
   pop();
-
 
   push();
   translate(-300, -200, 150);
@@ -236,7 +228,6 @@ function build() {
   box(12, 400, 12);
   pop();
 
-
   push();
   translate(200, 0, 290);
   box(12, 400, 12);
@@ -246,9 +237,7 @@ function build() {
   box(12, 400, 12);
   pop();
 
-
   /////////// small gi doong/////////////
-
   push();
   translate(-60, -200, 150);
   box(8, 8, 300);
@@ -283,8 +272,8 @@ function build() {
   translate(60, -200, 150);
   box(8, 8, 300);
   pop();
-  /////////////// ga ro gi doong///////
 
+  /////////////// ga ro gi doong///////
   push();
   translate(0, 200, 100);
   box(600, 10, 10);
@@ -294,7 +283,6 @@ function build() {
   translate(0, -200, 100);
   box(600, 10, 10);
   pop();
-
 
   push();
   translate(0, 200, 290);
@@ -307,7 +295,6 @@ function build() {
   pop();
 
   /////////
-
   push();
   translate(-40, 200, 150);
   box(8, 8, 300);
