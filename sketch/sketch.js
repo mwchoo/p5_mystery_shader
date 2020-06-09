@@ -4,8 +4,10 @@
 < MANUAL >
 ARROW_UP Key: go forward
 ARROW_DOWN Key: go backward
-ARROW_LEFT Key: turn your head to the left
-ARROW_RIGHT Key: turn your head to the right
+ARROW_LEFT Key: go left
+ARROW_RIGHT Key: go right
+
+mouseX, Y: change angle of the light and control movements of particles and fairy
 
 P Key: screen shot
 */

@@ -22,6 +22,8 @@ ARROW_DOWN Key: go backward
 ARROW_LEFT Key: go left
 ARROW_RIGHT Key: go right
 
+mouseX, Y: change angle of the light and control movements of particles and fairy
+
 P Key: screen shot
 ```
 
