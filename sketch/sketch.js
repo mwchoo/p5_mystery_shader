@@ -30,7 +30,8 @@ let humanModel = {
 };
 let bgColor;
 let shaders = {
-  fairy: undefined
+  fairy: undefined,
+  background: undefined
 }
 let human;
 //let scene_timer;
@@ -61,6 +62,7 @@ function preload() {
   humanModel.leg_r_h = loadModel('assets/leg_r_h.obj');
   humanModel.leg_r_l = loadModel('assets/leg_r_l.obj');
   shaders.fairy = loadShader('shader.vert', 'shader.frag');
+  shaders.background = loadShader('shader1.vert', 'shader1.frag');
 }
 
 function setup() {
@@ -98,6 +100,9 @@ function setup() {
 function draw() {
   background(bgColor);
 
+  // shader setting
+  handleShader();
+
   // light setting
   //lights();
   ambientLight(70);
@@ -119,10 +124,27 @@ function draw() {
     camera(X, Y, Z, centerX, centerY, centerZ, 0, 1, 0);
     drawWorld();
     human.render();
+    push();
+    translate(0,2200,-1100);
+    rotateX(radians(90));
+    scale(2);
+    fill(255);
+    //build();
+    pop();
   } else if (scene === 1) {
     // particles and fairy
     camera(0, 0, (height / 2.0) / tan(PI * 30.0 / 180.0), 0, 0, 0, 0, 1, 0);
     drawParticles();
+    push();
+    translate(0,2200,-1100);
+    rotateX(radians(90));
+    scale(15);
+
+    pointLight(200, 100, 100, sin(srot) * 4000, -1300, cos(srot) * 100 - 100);
+    directionalLight(100, 100, 250, 0, 0, 2000);
+
+    build();
+    pop();
   }
 
   //human.render();
@@ -135,6 +157,63 @@ function draw() {
 
   checkHumanPos();
   handleKeyDown();
+}
+
+function handleShader() {
+  // yewon
+  shader(shaders.background);
+  shaders.background.setUniform("u_resolution", [width, height]);
+  shaders.background.setUniform("u_time", frameCount * 0.01);
+  shaders.background.setUniform("u_mouse", [mouseX, mouseY]);
+  push();
+  translate(-windowWidth / 2 + 100, -windowHeight / 2 + 100, -1000);
+  sphere(50);
+  pop();
+  push();
+  shaders.background.setUniform("u_time", frameCount * 0.05);
+  translate(-windowWidth / 2 + 150, -windowHeight / 2 + 300, -1000);
+  sphere(50);
+  pop();
+  push();
+  shaders.background.setUniform("u_time", frameCount * 0.07);
+  translate(-windowWidth / 2 + 150, -windowHeight / 2 + 600, -2000);
+  sphere(100);
+  pop();
+  push();
+  shaders.background.setUniform("u_time", frameCount * 0.07);
+  translate(-windowWidth / 2, -windowHeight / 2 + 600, -1600);
+  sphere(20);
+  pop();
+  push();
+  shaders.background.setUniform("u_time", frameCount * 0.02);
+  translate(-windowWidth / 2 + 900, -windowHeight / 2 + 400, -1000);
+  sphere(100);
+  pop();
+  push();
+  shaders.background.setUniform("u_time", frameCount * 0.04);
+  translate(windowWidth / 2 - 100, -windowHeight / 2, -1000);
+  sphere(20);
+  pop();
+  push();
+  shaders.background.setUniform("u_time", frameCount * 0.04);
+  translate(windowWidth / 2 - 100, -100, -2000);
+  sphere(30);
+  pop();
+  push();
+  shaders.background.setUniform("u_time", frameCount * 0.04);
+  translate(200, 600, -2000);
+  sphere(30);
+  pop();
+  push();
+  shaders.background.setUniform("u_time", frameCount * 0.04);
+  translate(600, 300, -1000);
+  sphere(30);
+  pop();
+  push();
+  shaders.background.setUniform("u_time", frameCount * 0.09);
+  translate(windowWidth / 2 + 100, windowHeight / 2 + 200, -3000);
+  sphere(20);
+  pop();
 }
 
 function handleKeyDown() {
