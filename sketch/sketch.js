@@ -87,7 +87,7 @@ function setup() {
     particles.push(new Particle(200, 100));
   }
 
-  for (let i = 0; i < 3; i++) {
+  for (let i = 0; i < 1; i++) {
     fairies.push(new Fairy());
   }
   //
@@ -122,14 +122,8 @@ function draw() {
   if (scene === 0) {
     // walks to the lobby
     camera(X, Y, Z, centerX, centerY, centerZ, 0, 1, 0);
-    drawWorld();
     human.render();
-    push();
-    translate(0,2200,-1100);
-    rotateX(radians(90));
-    scale(2);
-    fill(255);
-    //build();
+    drawWorld();
     pop();
   } else if (scene === 1) {
     // particles and fairy
@@ -142,8 +136,7 @@ function draw() {
 
     pointLight(200, 100, 100, sin(srot) * 4000, -1300, cos(srot) * 100 - 100);
     directionalLight(100, 100, 250, 0, 0, 2000);
-
-    //build();
+    build();
     pop();
   }
 
@@ -161,6 +154,8 @@ function draw() {
 
 function handleShader() {
   // yewon
+  push();
+  noStroke();
   shader(shaders.background);
   shaders.background.setUniform("u_resolution", [width, height]);
   shaders.background.setUniform("u_time", frameCount * 0.01);
@@ -213,6 +208,7 @@ function handleShader() {
   shaders.background.setUniform("u_time", frameCount * 0.09);
   translate(windowWidth / 2 + 100, windowHeight / 2 + 200, -3000);
   sphere(20);
+  pop();
   pop();
 }
 
