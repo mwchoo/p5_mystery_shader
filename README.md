@@ -1,4 +1,4 @@
-# :crystal_ball: Fairy
+# :crystal_ball: Fairy & Fantasy
 AAT4001: Project 10 - Interactive 3D graphics for wall projection using p5.js [Sogang Univ]
 
 ```
