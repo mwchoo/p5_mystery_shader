@@ -143,7 +143,7 @@ function draw() {
     pointLight(200, 100, 100, sin(srot) * 4000, -1300, cos(srot) * 100 - 100);
     directionalLight(100, 100, 250, 0, 0, 2000);
 
-    build();
+    //build();
     pop();
   }
 
